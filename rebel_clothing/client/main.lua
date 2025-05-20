@@ -121,8 +121,5 @@ end)
 
 -- Listen for the event and open the correct clothing category
 RegisterNetEvent("rebel_clothing:openRack", function(data)
-    local category = data.category
-    -- Replace this with your clothing menu logic for the category:
-    -- Example for qb-clothing:
-    exports['qb-clothing']:openOutfitCategory(category)
+    exports['qb-clothing']:openOutfitMenu() -- or openMenu(), depending on your qb-clothing version
 end)
