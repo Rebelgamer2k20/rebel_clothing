@@ -25,7 +25,7 @@ local function isOutdated(localVer, remoteVer)
 end
 
 local function printStyled(message)
-    print("^3[MY_RESOURCE UPDATE]^0 " .. message)
+    print("^3[Rebel_Clothing Update]^0 " .. message)
 end
 
 local function checkVersion()
