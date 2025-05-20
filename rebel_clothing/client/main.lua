@@ -123,3 +123,83 @@ end)
 RegisterNetEvent("rebel_clothing:openRack", function(data)
     exports['qb-clothing']:openOutfitMenu() -- or openMenu(), depending on your qb-clothing version
 end)
+
+Citizen.CreateThread(function()
+    for storeName, store in pairs(Config.Stores or {}) do
+        -- Racks (already handled above)
+        -- Registers
+        for _, register in ipairs(store.registers or {}) do
+            if Config.TargetScript == "qb-target" then
+                exports['qb-target']:AddBoxZone(
+                    register.label .. "_" .. storeName,
+                    vector3(register.coords.x, register.coords.y, register.coords.z),
+                    1.0, 1.0,
+                    {
+                        name = register.label .. "_" .. storeName,
+                        heading = 0,
+                        debugPoly = false,
+                        minZ = register.coords.z - 1,
+                        maxZ = register.coords.z + 1,
+                    },
+                    {
+                        options = {
+                            {
+                                event = "rebel_clothing:payAtRegister",
+                                icon = "fas fa-cash-register",
+                                label = "Pay for Clothing",
+                                store = storeName
+                            }
+                        },
+                        distance = 2.0
+                    }
+                )
+            elseif Config.TargetScript == "ox_target" then
+                exports.ox_target:addBoxZone({
+                    coords = vector3(register.coords.x, register.coords.y, register.coords.z),
+                    size = vec3(1.0, 1.0, 2.0),
+                    rotation = 0,
+                    debug = false,
+                    options = {
+                        {
+                            name = register.label .. "_" .. storeName,
+                            event = "rebel_clothing:payAtRegister",
+                            icon = "fas fa-cash-register",
+                            label = "Pay for Clothing",
+                            store = storeName
+                        }
+                    }
+                })
+            end
+        end
+    end
+end)
+
+RegisterNetEvent("rebel_clothing:payAtRegister", function(data)
+    local paymentMenu = {
+        {
+            header = "Choose Payment Method",
+            isMenuHeader = true
+        },
+        {
+            header = "Pay with Cash",
+            txt = "Pay for your clothing with cash",
+            params = {
+                event = "rebel_clothing:processPayment",
+                args = { method = "cash" }
+            }
+        },
+        {
+            header = "Pay with Society Bank",
+            txt = "Pay for your clothing with society funds",
+            params = {
+                event = "rebel_clothing:processPayment",
+                args = { method = "society" }
+            }
+        }
+    }
+    exports['qb-menu']:openMenu(paymentMenu)
+end)
+
+RegisterNetEvent("rebel_clothing:processPayment", function(data)
+    TriggerServerEvent("rebel_clothing:chargePlayer", data.method)
+end)

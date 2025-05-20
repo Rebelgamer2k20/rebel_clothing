@@ -1,6 +1,6 @@
 -- version_check.lua-------
 
-local CurrentVersion = "1.0.0.5"
+local CurrentVersion = "1.0.0.6"
 local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/refs/heads/main/rebel_clothing/version_check.json" -- <-- Use the correct URL
 
 local function splitVersion(version)
@@ -43,7 +43,7 @@ local function checkVersion()
                     printStyled("Latest Version: ^4" .. remoteVersion .. "^0")   -- Blue
                     printStyled("Message: ^3" .. message .. "^0")
                     printStyled("Visit your keymaster or update at: ^5" .. keymasterURL .. "^0")
-                    printStyled("please clear your server cache: ^5" .. keymasterURL .. "^0")
+                    printStyled("please clear your server cache: ^5" )
                 else
                     printStyled("^2You're using the latest version (^2" .. CurrentVersion .. "^0)^0") -- Green
                 end
