@@ -10,3 +10,7 @@ shared_script '@qb-core/shared/locale.lua'
 shared_script 'config.lua'
 client_script 'client.lua'
 server_script 'server.lua'
+
+escrow_ignore {
+    'config.lua'
+}
