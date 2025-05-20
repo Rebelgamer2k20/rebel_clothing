@@ -1,7 +1,7 @@
 -- version_check.lua
 
 local CurrentVersion = "1.0.0.0"
-local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/refs/heads/main/rebel_clothing/version_check.lua?token=GHSAT0AAAAAADDHTVFRLUBWTP3C5ZQHPGK42BMCY2A" -- ⬅️ Change this to your actual URL
+local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/main/rebel_clothing/version.json" -- <-- Use the correct URL
 
 local function splitVersion(version)
     local parts = {}
@@ -39,12 +39,12 @@ local function checkVersion()
 
                 if isOutdated(CurrentVersion, remoteVersion) then
                     printStyled("^1Your resource is outdated!^0")
-                    printStyled("Current Version: ^1" .. CurrentVersion .. "^0")
-                    printStyled("Latest Version: ^2" .. remoteVersion .. "^0")
+                    printStyled("Current Version: ^1" .. CurrentVersion .. "^0") -- Red
+                    printStyled("Latest Version: ^4" .. remoteVersion .. "^0")   -- Blue
                     printStyled("Message: ^3" .. message .. "^0")
                     printStyled("Visit your keymaster or update at: ^5" .. keymasterURL .. "^0")
                 else
-                    printStyled("^2You're using the latest version (" .. CurrentVersion .. ")^0")
+                    printStyled("^2You're using the latest version (^2" .. CurrentVersion .. "^0)^0") -- Green
                 end
             else
                 printStyled("^1Failed to parse version data from GitHub^0")
