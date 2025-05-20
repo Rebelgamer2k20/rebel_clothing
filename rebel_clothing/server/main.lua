@@ -7,10 +7,10 @@ local creatorLogo = [[
 |_| \_\___|_.__/ \___|_|\____|\__,_|_| |_| |_|\___|_| |_____|_|\_\_____|\___/ 
 ]]
 
-local resourceVersion = "1.0.0.2"
+local resourceVersion = "1.0.0.3"
 
 print(creatorLogo)
-print("^3[Mechanic Shop]^0 Resource Version: ^2" .. resourceVersion .. "^0")
+print("^3[Rebel_Clothing]^0 Resource Version: ^2" .. resourceVersion .. "^0")
 
 local QBCore = exports['qb-core']:GetCoreObject()
 
