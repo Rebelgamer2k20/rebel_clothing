@@ -1,4 +1,4 @@
--- version_check.lua
+-- version_check.lua-------
 
 local CurrentVersion = "1.0.0.2"
 local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/main/rebel_clothing/version_check.json" -- <-- Use the correct URL
