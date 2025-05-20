@@ -43,6 +43,7 @@ local function checkVersion()
                     printStyled("Latest Version: ^4" .. remoteVersion .. "^0")   -- Blue
                     printStyled("Message: ^3" .. message .. "^0")
                     printStyled("Visit your keymaster or update at: ^5" .. keymasterURL .. "^0")
+                    printStyled("please clear your server cache: ^5" .. keymasterURL .. "^0")
                 else
                     printStyled("^2You're using the latest version (^2" .. CurrentVersion .. "^0)^0") -- Green
                 end
