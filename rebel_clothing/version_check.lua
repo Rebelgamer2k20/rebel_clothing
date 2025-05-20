@@ -1,7 +1,7 @@
 -- version_check.lua
 
 local CurrentVersion = "1.0.0.0"
-local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/refs/heads/main/rebel_clothing/version_check.lua -- <-- Use the correct URL
+local VersionURL = "https://raw.githubusercontent.com/Rebelgamer2k20/rebel_clothing/refs/heads/main/rebel_clothing/version_check.json?token=GHSAT0AAAAAADDHTVFREG3LX5LE4BDMBADY2BMDC2A" -- <-- Use the correct URL
 
 local function splitVersion(version)
     local parts = {}
