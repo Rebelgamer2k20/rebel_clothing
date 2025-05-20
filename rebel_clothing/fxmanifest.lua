@@ -9,8 +9,10 @@ lua54 'yes'
 shared_script '@qb-core/shared/locale.lua'
 shared_script '@qb-core/shared/locale.lua'
 shared_script 'shared/config.lua'
+shared_script 'shared/locales/en.lua'
 client_script 'client/main.lua'
 server_script 'server/main.lua'
+
 
 
 escrow_ignore {
