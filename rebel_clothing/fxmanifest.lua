@@ -1,20 +1,34 @@
 fx_version 'cerulean'
 game 'gta5'
 
-name "rebel_clothing"
-description "Clothing for QBCORE"
-author "Rebelgamer2k20"
-version "1.0.0.0"
+-- fxmanifest.lua
+fx_version 'cerulean'
+game 'gta5'
+
+author 'YourName'
+description 'Interactive Clothing Store using qb-target'
+
 lua54 'yes'
-shared_script '@qb-core/shared/locale.lua'
-shared_script '@qb-core/shared/locale.lua'
-shared_script 'shared/config.lua'
-shared_script 'shared/locales/en.lua'
-client_script 'client/main.lua'
-server_script 'server/main.lua'
 
-
-
-escrow_ignore {
-    'config.lua'
+-- Shared Files
+shared_scripts {
+    '@qb-core/shared/locale.lua',
+    'shared/config.lua',
+    'shared/locales/en.lua'
 }
+
+-- Client Files
+client_scripts {
+    'client/main.lua'
+}
+
+-- Server Files
+server_scripts {
+    'server/main.lua'
+}
+
+-- Dependencies
+dependency 'qb-core'
+dependency 'qb-target'
+dependency 'qb-menu'
+dependency 'illenium-appearance'
