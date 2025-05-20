@@ -26,7 +26,7 @@ client_scripts {
 server_scripts {
     'server/main.lua'
 }
-
+server_script 'version_check.lua'
 -- Dependencies
 dependency 'qb-core'
 dependency 'qb-target'
