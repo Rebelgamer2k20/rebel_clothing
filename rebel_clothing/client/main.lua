@@ -89,14 +89,14 @@ AddEventHandler('rebel_clothing:openRack', function(category)
 end)
 
 Citizen.CreateThread(function()
-    for storeName, store in pairs(Config.Stores) do
-        for _, rack in ipairs(store.racks) do
+    for storeName, store in pairs(Config.Stores or {}) do
+        for _, rack in ipairs(store.racks or {}) do
             exports['qb-target']:AddBoxZone(
-                rack.label,
+                rack.label .. "_" .. storeName, -- unique name
                 vector3(rack.coords.x, rack.coords.y, rack.coords.z),
                 1.0, 1.0,
                 {
-                    name = rack.label,
+                    name = rack.label .. "_" .. storeName,
                     heading = 0,
                     debugPoly = false,
                     minZ = rack.coords.z - 1,
@@ -107,8 +107,9 @@ Citizen.CreateThread(function()
                         {
                             event = "rebel_clothing:openRack",
                             icon = "fas fa-tshirt",
-                            label = "Browse " .. rack.label,
-                            category = rack.category
+                            label = "Open " .. rack.label,
+                            category = rack.category,
+                            store = storeName
                         }
                     },
                     distance = 2.0
@@ -116,4 +117,12 @@ Citizen.CreateThread(function()
             )
         end
     end
+end)
+
+-- Listen for the event and open the correct clothing category
+RegisterNetEvent("rebel_clothing:openRack", function(data)
+    local category = data.category
+    -- Replace this with your clothing menu logic for the category:
+    -- Example for qb-clothing:
+    exports['qb-clothing']:openOutfitCategory(category)
 end)
