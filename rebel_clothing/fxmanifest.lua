@@ -1,11 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
--- fxmanifest.lua
-fx_version 'cerulean'
-game 'gta5'
-
-author 'YourName'
+author 'RebelGamer2k20'
 description 'Interactive Clothing Store using qb-target'
 
 lua54 'yes'
@@ -27,6 +23,13 @@ server_scripts {
     'server/main.lua'
 }
 server_script 'version_check.lua'
+
+-- Escrow Ignore
+escrow_ignore {
+    'shared/config.lua',
+    'README.md'
+}
+
 -- Dependencies
 dependency 'qb-core'
 dependency 'qb-target'

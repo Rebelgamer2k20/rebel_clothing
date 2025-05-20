@@ -4,6 +4,15 @@ Config = {}
 Config.Stores = {
     ["Downtown"] = {
         label = "Downtown Clothing Store",
+        blip = {
+            coords = vector3(72.3, -1399.1, 29.4), -- Blip location (usually store entrance)
+            sprite = 73, -- Clothing store icon
+            color = 47,  -- Blue
+            scale = 0.8,
+            display = 4,
+            shortRange = true,
+            name = "Clothing Store"
+        },
         racks = {
             {coords = vector3(72.3, -1399.1, 29.4), label = "Men's Shoes", category = "shoes"},
             {coords = vector3(73.0, -1398.0, 29.4), label = "Men's Pants", category = "pants"},

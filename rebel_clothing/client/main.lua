@@ -80,3 +80,40 @@ end)
 RegisterNetEvent('clothingstore:checkout', function()
     TriggerServerEvent("clothingstore:chargePlayer")
 end)
+
+RegisterNetEvent('rebel_clothing:openRack')
+AddEventHandler('rebel_clothing:openRack', function(category)
+    -- Open the clothing menu for only the specified category
+    -- Example for qb-clothing:
+    exports['qb-clothing']:openOutfitCategory(category)
+end)
+
+Citizen.CreateThread(function()
+    for storeName, store in pairs(Config.Stores) do
+        for _, rack in ipairs(store.racks) do
+            exports['qb-target']:AddBoxZone(
+                rack.label,
+                vector3(rack.coords.x, rack.coords.y, rack.coords.z),
+                1.0, 1.0,
+                {
+                    name = rack.label,
+                    heading = 0,
+                    debugPoly = false,
+                    minZ = rack.coords.z - 1,
+                    maxZ = rack.coords.z + 1,
+                },
+                {
+                    options = {
+                        {
+                            event = "rebel_clothing:openRack",
+                            icon = "fas fa-tshirt",
+                            label = "Browse " .. rack.label,
+                            category = rack.category
+                        }
+                    },
+                    distance = 2.0
+                }
+            )
+        end
+    end
+end)
